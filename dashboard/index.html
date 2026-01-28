@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>ai-log-insight – Day 2</h1>
+<button onclick="load()">Load ERROR logs</button>
+<pre id="out"></pre>
+<script>
+async function load(){
+ const r = await fetch("http://localhost:8000/logs/search?level=ERROR");
+ document.getElementById("out").innerText = JSON.stringify(await r.json(), null, 2);
+}
+</script>
+</body>
+</html>
